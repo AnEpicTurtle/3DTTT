@@ -5,10 +5,9 @@
  */
 
 public class Cube {
-    public static int[][][] cube = new int[3][3][3];
-
+    public static String[][][] cube = new String[3][3][3];
     // Prints 3d array
-    public static void prnt(int[][][] cube) {
+    public static void prnt(String[][][] cube) {
         for (byte x = 0; x < 3; x++) {
             for (byte y = 0; y < 3; y++) {
                 for (byte z = 0; z < 3; z++) {
@@ -36,7 +35,7 @@ public class Cube {
 
         // if checks XY with incremental Z
         for (int z = 0; z < 3; z++) {
-            int[][] translate2d = new int[3][3];
+            String[][] translate2d = new String[3][3];
 
             // X outside
             for (int i = 0; i < 3; i++) {
@@ -55,7 +54,7 @@ public class Cube {
         // werid not right variable names incoming
 
         for (int z = 0; z < 3; z++) {
-            int[][] translate2d = new int[3][3];
+            String[][] translate2d = new String[3][3];
 
             // X outside
             for (int i = 0; i < 3; i++) {
@@ -74,7 +73,7 @@ public class Cube {
         // werid not right variable names incoming
 
         for (int z = 0; z < 3; z++) {
-            int[][] translate2d = new int[3][3];
+            String[][] translate2d = new String[3][3];
 
             // X outside
             for (int i = 0; i < 3; i++) {
@@ -90,13 +89,13 @@ public class Cube {
         }
 
         // check all four hard coded diagonals
-        if (cube[0][0][0] == cube[1][1][1] && cube[0][0][0] == cube[2][2][2]) {
+        if (cube[0][0][0].equals(cube[1][1][1]) && cube[0][0][0].equals(cube[2][2][2]) && !cube[1][1][1].equals("[]")){
             win = true;
-        } else if (cube[2][0][0] == cube[1][1][1] && cube[2][0][0] == cube[0][2][2]) {
+        } else if (cube[2][0][0].equals(cube[1][1][1]) && cube[2][0][0].equals(cube[0][2][2]) && !cube[1][1][1].equals("[]")) {
             win = true;
-        } else if (cube[0][2][0] == cube[1][1][1] && cube[0][2][0] == cube[2][0][2]) {
+        } else if (cube[0][2][0].equals(cube[1][1][1]) && cube[0][2][0].equals(cube[2][0][2]) && !cube[1][1][1].equals("[]")) {
             win = true;
-        } else if (cube[2][2][0] == cube[1][1][1] && cube[2][2][0] == cube[0][0][2]) {
+        } else if (cube[2][2][0].equals(cube[1][1][1]) && cube[2][2][0].equals(cube[0][0][2]) && !cube[1][1][1].equals("[]")) {
             win = true;
         }
 
@@ -104,25 +103,25 @@ public class Cube {
 
     }
 
-    public static boolean FaceCheck(int[][] face) {
+    public static boolean FaceCheck(String[][] face) {
         // check rows
         for (int i = 0; i < 3; i++) {
-            if (face[i][0] == face[i][1] && face[i][0] == face[i][2] && face[i][0] != 0) {
+            if (face[i][0].equals(face[i][1]) && face[i][0].equals(face[i][2]) && !face[i][0].equals("[]")) {
                 return true;
             }
 
             // check cols
             for (int j = 0; j < 3; j++) {
-                if (face[0][j] == face[1][j] && face[0][j] == face[2][j] && face[0][j] != 0) {
+                if (face[0][j].equals(face[1][j]) && face[0][j].equals(face[2][j]) && !face[0][j].equals("[]")) {
                     return true;
                 }
 
             }
 
             // check diags
-            if (face[0][0] == face[1][1] && face[0][0] == face[2][2] && face[1][1] != 0) {
+            if (face[0][0].equals(face[1][1]) && face[0][0].equals(face[2][2]) && !face[1][1].equals("[]")) {
                 return true;
-            } else if (face[2][0] == face[1][1] && face[2][0] == face[2][0] && face[1][1] != 0) {
+            } else if (face[2][0].equals(face[1][1]) && face[2][0].equals(face[2][0]) && !face[1][1].equals("[]")) {
                 return true;
             }
 
