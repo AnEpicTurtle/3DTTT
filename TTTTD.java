@@ -48,7 +48,7 @@ public class TTTTD {
                         System.out.println("Choose an empty point");
                     } 
                     else {
-                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer % 2];
+                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
                     }
                 } 
                 else if (computer == true && roundCounter % 2 == 1){
@@ -60,7 +60,7 @@ public class TTTTD {
                         aiGuessz = (int)(Math.random() * 3);
                         if (Cube.cube[aiGuessz][aiGuessy][aiGuessx].equals("[]"))
                         {
-                           Cube.cube[aiGuessz][aiGuessy][aiGuessx] = " " + players[currentPlayer % 2];
+                           Cube.cube[aiGuessz][aiGuessy][aiGuessx] = " " + players[currentPlayer - 1];
                            break;
                         }
                     }
@@ -79,7 +79,7 @@ public class TTTTD {
                         System.out.println("Choose an empty point");
                     } 
                     else {
-                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer % 2];
+                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
                     }   
                 }
                 System.out.println("-----------END OF ROUND " + roundCounter + "-----------");
@@ -87,7 +87,7 @@ public class TTTTD {
                 gameOver = Cube.checker();
                 roundCounter++;
             }
-            System.out.println("Player " + currentPlayer + " wins!!!!");
+            System.out.println("Player " + players[currentPlayer - 1] + " wins!!!!");
         }
     }
 }
