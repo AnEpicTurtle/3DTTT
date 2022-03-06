@@ -35,20 +35,24 @@ public class TTTTD {
             int aiGuessz;
             while (gameOver == false) {
                 if (roundCounter % 2 == 0) {
-                    currentPlayer = 1;
-                    System.out.println("Give x,y,z of point (0-2)");
-                    System.out.println("X Co-ordinate: ");
-                    int arrz = magic.nextInt();
-                    System.out.println("Y Co-ordinate: ");
-                    int arry = magic.nextInt();
-                    System.out.println("Z Co-ordinate: ");
-                    int arrx = magic.nextInt();
-                    System.out.println();
-                    if (!Cube.cube[arrx][arry][arrz].equals("[]") ) {
-                        System.out.println("Choose an empty point");
-                    } 
-                    else {
-                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
+                    while (true){
+                        currentPlayer = 1;
+                        System.out.println("Give x,y,z of point (0-2)");
+                        System.out.println("X Co-ordinate: ");
+                        int arrz = magic.nextInt();
+                        System.out.println("Y Co-ordinate: ");
+                        int arry = magic.nextInt();
+                        System.out.println("Z Co-ordinate: ");
+                        int arrx = magic.nextInt();
+                        System.out.println();
+
+                        if (!Cube.cube[arrx][arry][arrz].equals("[]") ) {
+                            System.out.println("Choose an empty point");
+                        } 
+                        else {
+                            Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
+                            break;
+                        }
                     }
                 } 
                 else if (computer == true && roundCounter % 2 == 1){
@@ -60,27 +64,31 @@ public class TTTTD {
                         aiGuessz = (int)(Math.random() * 3);
                         if (Cube.cube[aiGuessz][aiGuessy][aiGuessx].equals("[]"))
                         {
-                           Cube.cube[aiGuessz][aiGuessy][aiGuessx] = " " + players[currentPlayer - 1];
-                           break;
+                            Cube.cube[aiGuessz][aiGuessy][aiGuessx] = " " + players[currentPlayer - 1];
+                            break;
                         }
                     }
                 }
-                else {
-                    currentPlayer = 2;
-                    System.out.println("Give x,y,z of point (0-2)");
-                    System.out.println("X Co-ordinate: ");
-                    int arrz = magic.nextInt();
-                    System.out.println("Y Co-ordinate: ");
-                    int arry = magic.nextInt();
-                    System.out.println("Z Co-ordinate: ");
-                    int arrx = magic.nextInt();
-                    System.out.println();
-                    if (!Cube.cube[arrx][arry][arrz].equals("[]") ) {
-                        System.out.println("Choose an empty point");
-                    } 
-                    else {
-                        Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
-                    }   
+                else{
+                    while(true)
+                    {
+                        currentPlayer = 2;
+                        System.out.println("Give x,y,z of point (0-2)");
+                        System.out.println("X Co-ordinate: ");
+                        int arrz = magic.nextInt();
+                        System.out.println("Y Co-ordinate: ");
+                        int arry = magic.nextInt();
+                        System.out.println("Z Co-ordinate: ");
+                        int arrx = magic.nextInt();
+                        System.out.println();
+                        if (!Cube.cube[arrx][arry][arrz].equals("[]") ) {
+                            System.out.println("Choose an empty point");
+                        } 
+                        else {
+                            Cube.cube[arrx][arry][arrz] = " " + players[currentPlayer - 1];
+                            break;
+                        }
+                    }
                 }
                 System.out.println("-----------END OF ROUND " + roundCounter + "-----------");
                 Cube.prnt(Cube.cube);
